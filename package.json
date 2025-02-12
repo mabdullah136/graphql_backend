@@ -1,0 +1,18 @@
+{
+  "name": "graphql_backend",
+  "version": "1.0.0",
+  "description": "This is a clean and modern GraphQL setup for the backend. You can easily expand it and integrate features like authentication, logging, and caching.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abdullah",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.13.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.0",
+    "mongoose-paginate-v2": "^1.9.0"
+  }
+}
