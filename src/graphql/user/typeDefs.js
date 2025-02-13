@@ -8,26 +8,54 @@ const typeDefs = gql`
     designations: String!
   }
 
-  type Query {
-    getUsers: [User]
-    getUser(userId: ID!): User
+  type GetUsersResponse {
+    users: [User]
   }
 
-  type UpdateUserResponse {
-    status: String!
-    message: String!
+  type GetUserResponse {
     user: User
   }
 
+  type Query {
+    getUsers: GetUsersResponse
+    getUser(userId: ID!): GetUserResponse
+  }
+
+  type UpdateUserResponse {
+    user: User
+  }
+
+  type CreateUserResponse {
+    user: User
+  }
+
+  type DeleteUserResponse {
+    user: User
+  }
+
+  type LoginResponse {
+    user: User
+    token: String
+  }
+
   type Mutation {
-    createUser(name: String!, email: String!, designations: String!): User
+    createUser(
+      name: String!
+      email: String!
+      designations: String!
+      password: String!
+    ): CreateUserResponse
+
     updateUser(
       userId: ID!
       name: String
       email: String
       designations: String
     ): UpdateUserResponse
-    deleteUser(userId: ID!): User
+
+    deleteUser(userId: ID!): DeleteUserResponse
+
+    loginUser(email: String!, password: String!): LoginResponse
   }
 `;
 
